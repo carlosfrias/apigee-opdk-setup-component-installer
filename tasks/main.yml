@@ -22,3 +22,13 @@
   args:
     creates: '{{ apigee_installation_home }}/apigee-adminapi/bin/apigee-adminapi.sh }}'
   when: opdk_version | version_compare('4.16', '>=')
+
+- name: Set Apigee directory ownership
+  file:
+    path: '{{ item }}'
+    owner: '{{ opdk_user_name }}'
+    group: '{{ opdk_user_name }}'
+    recurse: yes
+  with_items:
+  - /opt/apigee
+  - /opt/nginx
