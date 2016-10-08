@@ -49,8 +49,8 @@ defaults.
 Dependencies
 ------------
 
-    - opdk-setup-default-settings
-    - opdk-setup-bootstrap
+    - apigee-opdk-setup-default-settings
+    - apigee-opdk-setup-bootstrap
 
 Example Playbook
 ----------------
@@ -59,7 +59,7 @@ Example Playbook
     - hosts: '{{hosts}}'
       become: true
       roles:
-      - { role: opdk-setup-component-installer }
+      - { role: apigee-opdk-setup-component-installer }
 
 License
 -------

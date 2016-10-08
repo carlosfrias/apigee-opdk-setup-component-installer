@@ -1,5 +1,5 @@
 ---
-# defaults file for opdk-setup-installer
+# defaults file for apigee-opdk-setup-installer
 
 opdk_installer_file_prefix: apigee-edge
 opdk_installer_file_basename: '{{ opdk_installer_file_prefix}}-{{ opdk_version }}'

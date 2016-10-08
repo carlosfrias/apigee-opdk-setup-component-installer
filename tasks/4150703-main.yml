@@ -1,5 +1,5 @@
 ---
-# tasks file for opdk-setup-installer
+# tasks file for apigee-opdk-setup-installer
 
 - name: Check for existence of installation archive
   stat:
