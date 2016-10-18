@@ -3,13 +3,11 @@
   copy:
     src: "{{ opdk_license_source_file_name }}"
     dest: "{{ opdk_license_target_file_path }}"
-    owner: '{{ opdk_user_name }}'
-    group: '{{ opdk_group_name }}'
     mode: 0644
     force: yes
 
 - include: 4150703-main.yml
-  when: opdk_version | version_compare('4.15.07', '<=')
+  when: opdk_version | version_compare('4.16', '<')
 
 - name: Install Apigee Setup
   shell: 'bash {{ apigee_service }} apigee-setup install'
