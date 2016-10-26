@@ -6,9 +6,6 @@
     mode: 0644
     force: yes
 
-- include: 4150703-main.yml
-  when: opdk_version | version_compare('4.16', '<')
-
 - name: Install Apigee Setup
   shell: 'bash {{ apigee_service }} apigee-setup install'
   args:
