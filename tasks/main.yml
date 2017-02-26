@@ -8,11 +8,11 @@
 
 - block:
 
-  - name: Install Apigee Setup
+  - name: Uninstall Apigee Setup
     shell: 'bash {{ apigee_service }} apigee-setup uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
-  - name: Install Apigee Admin
+  - name: Uninstall Apigee Admin
     shell: 'bash {{ apigee_service }} apigee-adminapi uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
