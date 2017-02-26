@@ -10,25 +10,24 @@
 
   - name: Install Apigee Setup
     shell: 'bash {{ apigee_service }} apigee-setup uninstall'
-    args:
-      creates: '{{ apigee_installation_home }}/apigee-setup/bin/setup.sh'
     when: opdk_version | version_compare('4.16', '>=')
 
   - name: Install Apigee Admin
     shell: 'bash {{ apigee_service }} apigee-adminapi uninstall'
-    args:
-      creates: '{{ apigee_installation_home }}/apigee-adminapi/bin/apigee-adminapi.sh'
     when: opdk_version | version_compare('4.16', '>=')
+
   when: upgrade_edge is defined and upgrade_edge | bool == True
 
-- name: Install Apigee Setup
-  shell: 'bash {{ apigee_service }} apigee-setup install'
-  args:
-    creates: '{{ apigee_installation_home }}/apigee-setup/bin/setup.sh'
-  when: opdk_version | version_compare('4.16', '>=')
+- block:
 
-- name: Install Apigee Admin
-  shell: 'bash {{ apigee_service }} apigee-adminapi install'
-  args:
-    creates: '{{ apigee_installation_home }}/apigee-adminapi/bin/apigee-adminapi.sh'
+  - name: Install Apigee Setup
+    shell: 'bash {{ apigee_service }} apigee-setup install'
+    args:
+      creates: '{{ apigee_installation_home }}/apigee-setup/bin/setup.sh'
+
+  - name: Install Apigee Admin
+    shell: 'bash {{ apigee_service }} apigee-adminapi install'
+    args:
+      creates: '{{ apigee_installation_home }}/apigee-adminapi/bin/apigee-adminapi.sh'
+
   when: opdk_version | version_compare('4.16', '>=')
