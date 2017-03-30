@@ -23,9 +23,9 @@
 - block:
 
   - name: Install Apigee Setup
-    command: '{{ apigee_service }} apigee-setup install'
+    command: 'bash {{ apigee_service }} apigee-setup install'
 
   - name: Install Apigee Admin
-    command: '{{ apigee_service }} apigee-adminapi install'
+    command: 'bash {{ apigee_service }} apigee-adminapi install'
 
   when: opdk_version | version_compare('4.16', '>=')
