@@ -32,7 +32,4 @@
     args:
       creates: '{{ apigee_installation_home }}/apigee-adminapi/bin/apigee-adminapi.sh'
 
-  - name: Wait for ready
-    shell: '{{ apigee_all }} wait_for_ready'
-
   when: opdk_version | version_compare('4.16', '>=')
