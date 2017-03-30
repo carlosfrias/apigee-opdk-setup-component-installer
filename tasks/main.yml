@@ -24,12 +24,8 @@
 
   - name: Install Apigee Setup
     command: '{{ apigee_service }} apigee-setup install'
-    args:
-      creates: '{{ apigee_installation_home }}/apigee-setup/bin/setup.sh'
 
   - name: Install Apigee Admin
     command: '{{ apigee_service }} apigee-adminapi install'
-    args:
-      creates: '{{ apigee_installation_home }}/apigee-adminapi/bin/apigee-adminapi.sh'
 
   when: opdk_version | version_compare('4.16', '>=')
