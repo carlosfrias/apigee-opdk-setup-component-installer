@@ -27,9 +27,6 @@
     args:
       creates: '{{ apigee_installation_home }}/apigee-setup/bin/setup.sh'
 
-  - name: Wait for ready
-    shell: '{{ apigee_all }} wait_for_ready'
-
   - name: Install Apigee Admin
     shell: 'bash {{ apigee_service }} apigee-adminapi install'
     args:
