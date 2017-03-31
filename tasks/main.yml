@@ -10,12 +10,12 @@
 
   - name: Uninstall Apigee Setup
     ignore_errors: yes
-    command: '{{ apigee_service }} apigee-setup uninstall'
+    shell: '{{ apigee_service }} apigee-setup uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
   - name: Uninstall Apigee Admin
     ignore_errors: yes
-    command: '{{ apigee_service }} apigee-adminapi uninstall'
+    shell: '{{ apigee_service }} apigee-adminapi uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
   when: upgrade_edge is defined and upgrade_edge | bool == True
@@ -23,9 +23,9 @@
 - block:
 
   - name: Install Apigee Setup
-    command: '{{ apigee_service }} apigee-setup install'
+    shell: '{{ apigee_service }} apigee-setup install'
 
   - name: Install Apigee Admin
-    command: '{{ apigee_service }} apigee-adminapi install'
+    shell: '{{ apigee_service }} apigee-adminapi install'
 
   when: opdk_version | version_compare('4.16', '>=')
