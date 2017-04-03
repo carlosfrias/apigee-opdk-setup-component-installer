@@ -9,22 +9,22 @@
 - block:
 
   - name: Uninstall Apigee Setup, if it exists
-    ignore_errors: yes
+    ignore_errors: "{{ ignore_errors | default(yes) }}"
     shell: '{{ apigee_service }} apigee-setup uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
   - name: Uninstall Apigee Admin, if it exists
-    ignore_errors: yes
+    ignore_errors: "{{ ignore_errors | default(yes) }}"
     shell: '{{ apigee_service }} apigee-adminapi uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
   - name: Uninstall Apigee Provision, if it exists
-    ignore_errors: yes
+    ignore_errors: "{{ ignore_errors | default(yes) }}"
     shell: '{{ apigee_service }} apigee-provision uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
   - name: Uninstall Apigee Migrate, if it exists
-    ignore_errors: yes
+    ignore_errors: "{{ ignore_errors | default(yes) }}"
     shell: '{{ apigee_service }} apigee-migrate uninstall'
     when: opdk_version | version_compare('4.16', '>=')
 
