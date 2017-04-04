@@ -33,11 +33,9 @@
 - block:
 
   - name: Install Apigee Setup
-    ignore_errors: "{{ ignore_errors | default('no') }}"
     shell: '{{ apigee_service }} apigee-setup install'
 
   - name: Install Apigee Admin
-    ignore_errors: "{{ ignore_errors | default('no') }}"
     shell: '{{ apigee_service }} apigee-adminapi install'
 
   when: opdk_version | version_compare('4.16', '>=')
