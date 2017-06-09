@@ -1,0 +1,12 @@
+---
+- name: Install Apigee Setup
+  shell: '{{ apigee_service }} apigee-setup install'
+  environment:
+    http_proxy: "{{ http_proxy }}"
+    https_proxy: "{{ https_proxy }}"
+
+- name: Install Apigee Admin
+  shell: '{{ apigee_service }} apigee-adminapi install'
+  environment:
+    http_proxy: "{{ http_proxy }}"
+    https_proxy: "{{ https_proxy }}"

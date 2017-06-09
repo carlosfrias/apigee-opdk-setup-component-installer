@@ -40,19 +40,7 @@
 
   when: opdk_version | version_compare('4.16', '>=') and http_proxy is not defined and https_proxy is not defined
 
-- block:
-
-  - name: Install Apigee Setup
-    shell: '{{ apigee_service }} apigee-setup install'
-    environment:
-      http_proxy: "{{ http_proxy }}"
-      https_proxy: "{{ https_proxy }}"
-
-  - name: Install Apigee Admin
-    shell: '{{ apigee_service }} apigee-adminapi install'
-    environment:
-      http_proxy: "{{ http_proxy }}"
-      https_proxy: "{{ https_proxy }}"
-
+- name: Use proxy definitions
+  include: with_proxy.yml
   when: opdk_version | version_compare('4.16', '>=') and http_proxy is defined and https_proxy is defined
 
