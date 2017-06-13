@@ -1,0 +1,6 @@
+---
+- name: Install Apigee Setup
+  shell: '{{ apigee_service }} apigee-setup install'
+
+- name: Install Apigee Admin
+  shell: '{{ apigee_service }} apigee-adminapi install'
