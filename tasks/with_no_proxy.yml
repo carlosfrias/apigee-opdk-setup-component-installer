@@ -1,6 +1,6 @@
 ---
-- name: Install Apigee Setup
+- name: Install Apigee Setup with no proxy
   shell: '{{ apigee_service }} apigee-setup install'
 
-- name: Install Apigee Admin
+- name: Install Apigee Admin with no proxy
   shell: '{{ apigee_service }} apigee-adminapi install'
