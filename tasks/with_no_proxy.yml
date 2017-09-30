@@ -1,6 +1,16 @@
 ---
 - name: Install Apigee Setup with no proxy
   shell: '{{ apigee_service }} apigee-setup install'
+  when: opdk_debug_mode is not defined or opdk_debug_mode | trim | lower == 'off'
 
 - name: Install Apigee Admin with no proxy
   shell: '{{ apigee_service }} apigee-adminapi install'
+  when: opdk_debug_mode is not defined or opdk_debug_mode | trim | lower == 'off'
+
+- name: DEBUG_MODE - Install Apigee Setup with no proxy
+  shell: '{{ apigee_service }} apigee-setup install'
+  when: opdk_debug_mode is defined and opdk_debug_mode | trim | lower == 'on'
+
+- name: DEBUG_MODE - Install Apigee Admin with no proxy
+  shell: '{{ apigee_service }} apigee-adminapi install'
+  when: opdk_debug_mode is defined and opdk_debug_mode | trim | lower == 'on'
