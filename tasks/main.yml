@@ -30,22 +30,14 @@
 
   when: upgrade_edge is defined and upgrade_edge | bool == True
 
-#- name: Do not use proxy definitions
-#  include: with_no_proxy.yml
-#  when: opdk_version | version_compare('4.16', '>=') and (https_proxy is not defined or https_proxy | trim == '') and (http_proxy is not defined or http_proxy | trim == '')
-#
-#- name: Use proxy definitions
-#  include: with_proxy.yml
-#  when: opdk_version | version_compare('4.16', '>=') and https_proxy is defined and https_proxy | trim != '' and http_proxy is defined and http_proxy | trim != ''
-
-- name: Install Apigee Setup with proxy
+- name: Install Apigee Setup
   shell: '{{ apigee_service }} apigee-setup install'
   environment:
     no_proxy: "{{ no_proxy }}"
     http_proxy: "{{ http_proxy }}"
     https_proxy: "{{ https_proxy }}"
 
-- name: Install Apigee Admin with proxy
+- name: Install Apigee Admin
   shell: '{{ apigee_service }} apigee-adminapi install'
   environment:
     no_proxy: "{{ no_proxy }}"
