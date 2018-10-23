@@ -33,13 +33,13 @@
 - name: Install Apigee Setup
   shell: '{{ apigee_service }} apigee-setup install'
   environment:
-    no_proxy: "{{ no_proxy }}"
-    http_proxy: "{{ http_proxy }}"
-    https_proxy: "{{ https_proxy }}"
+    no_proxy: "{{ no_proxy | default('') }}"
+    http_proxy: "{{ http_proxy | default('') }}"
+    https_proxy: "{{ https_proxy | default('') }}"
 
 - name: Install Apigee Admin
   shell: '{{ apigee_service }} apigee-adminapi install'
   environment:
-    no_proxy: "{{ no_proxy }}"
-    http_proxy: "{{ http_proxy }}"
-    https_proxy: "{{ https_proxy }}"
+    no_proxy: "{{ no_proxy | default('') }}"
+    http_proxy: "{{ http_proxy | default('') }}"
+    https_proxy: "{{ https_proxy | default('') }}"
