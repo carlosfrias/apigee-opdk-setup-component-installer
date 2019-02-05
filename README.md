@@ -30,7 +30,7 @@ defaults.
 * opdk_staging_folder_name: The location of the opdk staging folder in the opdk user home.
 * opdk_major_minor_version: Opdk major and minor version numbers only
 * opdk_build_version: Opdk build version
-* opdk_installer_path: Path to opdk staging folder
+* opdk_resources_path: Path to opdk staging folder
 * opdk_installer_file_basename: Base file name of the installation archive
 * opdk_staging_path_prefix: Prefix used in the name of the staging path
 * opdk_installer_staging_folder_path: Full path to the staging path for the opdk installer
